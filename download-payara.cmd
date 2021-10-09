@@ -1,7 +1,7 @@
 @ECHO OFF
 
 REM Remote Environment Settings
-SET MAVEN_REPOSITORY=http://repo1.maven.org/maven2
+SET MAVEN_REPOSITORY=https://repo1.maven.org/maven2
 SET CURL_OPTS=
 
 REM Local Environment Settings
