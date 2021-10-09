@@ -1,30 +1,32 @@
 @ECHO OFF
 
-REM Path to default JDK install directory
-SET JAVA_HOME=C:\Program Files\Java\jdk1.8.0_202
+REM Path to default JDK install directory (strongly recommended to set)
+SET JAVA_HOME=
 
 REM Path to Maven install directory
 SET MAVEN_HOME=
 SET MAVEN_OPTS=
 
-:HELP
-IF "%1" == "--help" SET /P MESSAGE_USAGE="Usage: %0 [ --default | --latest | --jdk6 | --jdk7 | --jdk8 | --jdk9 | --jdk10 | --jdk11 | --jdk12 | --jdk13 | --jdk14 | --jdk15 ]" < NUL
-GOTO END
+REM Show help
+IF "%1" == "--help" SET /P MESSAGE_USAGE="Usage: %0 [ --default | --latest | --jdk6 | --jdk7 | --jdk8 | --jdk9 | --jdk10 | --jdk11 | --jdk12 | --jdk13 | --jdk14 | --jdk15 | --jdk16 | --jdk17 ]" < NUL
 
-:CHOOSE_JDK
+REM Choose JDK
 IF "%1" == "--default" GOTO SET_JAVA_HOME
 IF "%1" == "--jdk6"    SET JAVA_HOME=
 IF "%1" == "--jdk7"    SET JAVA_HOME=
-IF "%1" == "--jdk8"    SET JAVA_HOME=C:\Program Files\Java\jdk1.8.0_202
+IF "%1" == "--jdk8"    SET JAVA_HOME=
 IF "%1" == "--jdk9"    SET JAVA_HOME=
 IF "%1" == "--jdk10"   SET JAVA_HOME=
-IF "%1" == "--jdk11"   SET JAVA_HOME=C:\Program Files\Java\jdk-11.0.2
+IF "%1" == "--jdk11"   SET JAVA_HOME=
 IF "%1" == "--jdk12"   SET JAVA_HOME=
 IF "%1" == "--jdk13"   SET JAVA_HOME=
-IF "%1" == "--jdk14"   SET JAVA_HOME=C:\Program Files\Java\jdk-14.0.1
+IF "%1" == "--jdk14"   SET JAVA_HOME=
 IF "%1" == "--jdk15"   SET JAVA_HOME=
-IF "%1" == "--latest"  SET JAVA_HOME=C:\Program Files\Java\jdk-14.0.1
+IF "%1" == "--jdk16"   SET JAVA_HOME=
+IF "%1" == "--jdk17"   SET JAVA_HOME=
+IF "%1" == "--latest"  SET JAVA_HOME=
 
+REM Set environment variables
 :SET_JAVA_HOME
 IF "%JAVA_HOME%" == "" GOTO NO_JDKs
 SET PATH=%JAVA_HOME%\bin;%PATH%
